@@ -1,0 +1,16 @@
+body {
+  color: white;
+  background-color: #331111;
+}
+
+.red {
+  color: red;
+}
+
+.oldTweet {
+  white-space: pre-line;
+}
+
+.fav {
+  font-weight: bold;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Twitter?</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js"></script>
+</head>
+<body>
+  <h1>This Is Definitely Not Twitter</h1>
+  <hr>
+  <div ng-app="twitterApp" ng-init="tweet='Tweet Here'">
+    Angular: {{2+2}}
+    <p ng-show="cade">Something</p>
+    <p ng-hide="cade">Nothing</p>
+    <input type="checkbox" ng-model="cade"> {{cade}}
+    <hr>
+
+    <div ng-controller="tweetForm">
+      <textarea cols="40" rows="8" ng-model="tweet" ng-trim="false"></textarea>
+      <div ng-class="{ red: invalidTweet() }">{{ charsRemaining() }}</div>
+      <button ng-disabled="invalidTweet()" ng-click="addTweet(tweet)">Tweet</button>
+
+      <p ng-show="tweets.length === 0">No Tweets</p>
+      <ul>
+        <li ng-repeat="x in tweets track by $index">
+          <span class="oldTweet" ng-class="{ fav: x.fav }">{{x.text}}</span>
+          <button ng-click="deleteTweet($index)">X</button>
+          <button ng-click="favorite($index)">F</button>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> -->
+  <script src="main.js"></script>
+</body>
+</html>
